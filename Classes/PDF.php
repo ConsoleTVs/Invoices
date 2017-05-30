@@ -9,10 +9,12 @@ use Illuminate\Support\Facades\View;
 class PDF
 {
     /**
-     * Generate the PDF
+     * Generate the PDF.
      *
      * @method generate
-     * @param  ConsoleTVs\Invoices\Classes\Invoice   $invoice
+     *
+     * @param ConsoleTVs\Invoices\Classes\Invoice $invoice
+     *
      * @return Dompdf\Dompdf
      */
     public static function generate(Invoice $invoice, $template = 'default')
@@ -21,16 +23,16 @@ class PDF
 
         $options = new Options();
 
-        $options->set('isRemoteEnabled', TRUE);
+        $options->set('isRemoteEnabled', true);
 
         $pdf = new Dompdf($options);
 
         $context = stream_context_create([
-        	'ssl' => [
-        		'verify_peer' => FALSE,
-        		'verify_peer_name' => FALSE,
-        		'allow_self_signed'=> TRUE
-        	],
+            'ssl' => [
+                'verify_peer'      => false,
+                'verify_peer_name' => false,
+                'allow_self_signed'=> true,
+            ],
         ]);
 
         $pdf->setHttpContext($context);

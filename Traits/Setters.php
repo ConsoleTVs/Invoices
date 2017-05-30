@@ -11,7 +11,9 @@ trait Setters
      * Set the invoice name.
      *
      * @method name
-     * @param  string $name
+     *
+     * @param string $name
+     *
      * @return self
      */
     public function name($name)
@@ -25,7 +27,9 @@ trait Setters
      * Set the invoice number.
      *
      * @method number
-     * @param  integer $number
+     *
+     * @param int $number
+     *
      * @return self
      */
     public function number($number)
@@ -39,7 +43,9 @@ trait Setters
      * Set the invoice decimal precision.
      *
      * @method decimals
-     * @param  integer $decimals
+     *
+     * @param int $decimals
+     *
      * @return self
      */
     public function decimals($decimals)
@@ -53,7 +59,9 @@ trait Setters
      * Set the invoice tax.
      *
      * @method tax
-     * @param  float $tax
+     *
+     * @param float $tax
+     *
      * @return self
      */
     public function tax($tax)
@@ -67,7 +75,9 @@ trait Setters
      * Set the invoice tax type.
      *
      * @method taxType
-     * @param  string $tax_type
+     *
+     * @param string $tax_type
+     *
      * @return self
      */
     public function taxType($tax_type)
@@ -81,7 +91,9 @@ trait Setters
      * Set the invoice logo URL.
      *
      * @method logo
-     * @param  string $logo
+     *
+     * @param string $logo
+     *
      * @return self
      */
     public function logo($logo_url)
@@ -95,7 +107,9 @@ trait Setters
      * Set the invoice date.
      *
      * @method date
-     * @param  Carbon $date
+     *
+     * @param Carbon $date
+     *
      * @return self
      */
     public function date(Carbon $date)
@@ -109,7 +123,9 @@ trait Setters
      * Set the invoice notes.
      *
      * @method notes
-     * @param  string $notes
+     *
+     * @param string $notes
+     *
      * @return self
      */
     public function notes($notes)
@@ -123,7 +139,9 @@ trait Setters
      * Set the invoice business details.
      *
      * @method business
-     * @param  array   $details
+     *
+     * @param array $details
+     *
      * @return self
      */
     public function business($details)
@@ -137,7 +155,9 @@ trait Setters
      * Set the invoice customer details.
      *
      * @method customer
-     * @param  array   $details
+     *
+     * @param array $details
+     *
      * @return self
      */
     public function customer($details)
@@ -151,7 +171,9 @@ trait Setters
      * Set the invoice footnote.
      *
      * @method footnote
-     * @param  string   $footnote
+     *
+     * @param string $footnote
+     *
      * @return self
      */
     public function footnote($footnote)
