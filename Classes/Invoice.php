@@ -2,16 +2,16 @@
 
 namespace ConsoleTVs\Invoices\Classes;
 
-use Illuminate\Support\Collection;
-use ConsoleTVs\Invoices\Traits\Setters;
 use Carbon\Carbon;
+use ConsoleTVs\Invoices\Traits\Setters;
+use Illuminate\Support\Collection;
 
 class Invoice
 {
     use Setters;
 
     /**
-     * Invoice name
+     * Invoice name.
      *
      * @var string
      */
@@ -48,14 +48,14 @@ class Invoice
     /**
      * Invoice number.
      *
-     * @var integer
+     * @var int
      */
     public $number = null;
 
     /**
      * Invoice decimal precision.
      *
-     * @var integer
+     * @var int
      */
     public $decimals;
 
@@ -69,7 +69,7 @@ class Invoice
     /**
      * Invoice Logo Height.
      *
-     * @var integer
+     * @var int
      */
     public $logo_height;
 
@@ -119,7 +119,8 @@ class Invoice
      * Create a new invoice instance.
      *
      * @method __construct
-     * @param  string      $name
+     *
+     * @param string $name
      */
     public function __construct($name = 'Invoice')
     {
@@ -141,12 +142,14 @@ class Invoice
      * Return a new instance of Invoice.
      *
      * @method make
-     * @param  string $name
+     *
+     * @param string $name
+     *
      * @return ConsoleTVs\Invoices\Classes\Invoice
      */
     public static function make($name = 'Invoice')
     {
-        return new Invoice($name);
+        return new self($name);
     }
 
     /**
@@ -154,9 +157,10 @@ class Invoice
      *
      * @method addItem
      *
-     * @param  string  $name
-     * @param  integer $price
-     * @param  integer $ammount
+     * @param string $name
+     * @param int    $price
+     * @param int    $ammount
+     *
      * @return self
      */
     public function addItem($name, $price, $ammount = 1, $id = '-')
@@ -164,11 +168,11 @@ class Invoice
         $price = number_format($price, $this->decimals);
 
         $this->items->push(Collection::make([
-            'name' => $name,
-            'price' => $price,
-            'ammount' => $ammount,
+            'name'       => $name,
+            'price'      => $price,
+            'ammount'    => $ammount,
             'totalPrice' => bcmul($price, $ammount, $this->decimals),
-            'id' => $id,
+            'id'         => $id,
         ]));
 
         return $this;
@@ -178,6 +182,7 @@ class Invoice
      * Pop the last invoice item.
      *
      * @method popItem
+     *
      * @return self
      */
     public function popItem()
@@ -191,11 +196,12 @@ class Invoice
      * Return the currency object.
      *
      * @method formatCurrency
+     *
      * @return stdClass
      */
     public function formatCurrency()
     {
-        $currencies = json_decode(file_get_contents(__DIR__ . '/../Currencies.json'));
+        $currencies = json_decode(file_get_contents(__DIR__.'/../Currencies.json'));
         $currency = $this->currency;
 
         return $currencies->$currency;
@@ -205,7 +211,8 @@ class Invoice
      * Return the subtotal invoice price.
      *
      * @method subTotalPrice
-     * @return integer
+     *
+     * @return int
      */
     public function subTotalPrice()
     {
@@ -218,7 +225,8 @@ class Invoice
      * Return the total invoce price after aplying the tax.
      *
      * @method totalPrice
-     * @return integer
+     *
+     * @return int
      */
     public function totalPrice()
     {
@@ -226,9 +234,10 @@ class Invoice
     }
 
     /**
-     * taxPrice
+     * taxPrice.
      *
      * @method taxPrice
+     *
      * @return float
      */
     public function taxPrice()
@@ -244,6 +253,7 @@ class Invoice
      * Generate the PDF.
      *
      * @method generate
+     *
      * @return self
      */
     private function generate()
@@ -257,7 +267,9 @@ class Invoice
      * Downloads the generated PDF.
      *
      * @method download
-     * @param  string   $name
+     *
+     * @param string $name
+     *
      * @return response
      */
     public function download($name = 'invoice')
@@ -271,6 +283,7 @@ class Invoice
      * Show the PDF in the browser.
      *
      * @method show
+     *
      * @return response
      */
     public function show($name = 'invoice')
