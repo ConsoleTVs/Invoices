@@ -14,7 +14,6 @@ use Carbon\Carbon;
 use ConsoleTVs\Invoices\Traits\Setters;
 use Illuminate\Support\Collection;
 
-
 /**
  * This is the Invoice class.
  *
@@ -174,7 +173,7 @@ class Invoice
      * @param string $name
      * @param int    $price
      * @param int    $ammount
-     * @param string    $id
+     * @param string $id
      *
      * @return self
      */

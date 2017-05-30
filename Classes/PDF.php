@@ -27,7 +27,7 @@ class PDF
      * @method generate
      *
      * @param ConsoleTVs\Invoices\Classes\Invoice $invoice
-     * @param string $template
+     * @param string                              $template
      *
      * @return Dompdf\Dompdf
      */
