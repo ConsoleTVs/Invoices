@@ -1,0 +1,23 @@
+{
+    "name": "consoletvs/invoices",
+    "description": "Generate PDF invoices for your customers in laravel",
+    "type": "library",
+    "keywords": [
+        "Laravel", "Invoices", "Generate", "Create",
+        "Open Source", "Customers", "PDF", "Erik Campobadal"
+    ],
+    "require": {
+        "ext-bcmath": "*",
+        "illuminate/support": "^5.4",
+        "illuminate/view": "^5.4",
+        "nesbot/carbon":  "^1.22"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Erik Campobadal",
+            "email": "ConsoleTVs@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
