@@ -73,17 +73,6 @@ return [
 
   /*
   |--------------------------------------------------------------------------
-  | Default Invoice Customer Attribute
-  |--------------------------------------------------------------------------
-  |
-  | This value is going to be the default attribute displayed in
-  | the customer details.
-  */
-
-  'customer_attribute' => 'name',
-
-  /*
-  |--------------------------------------------------------------------------
   | Default Invoice Buissness Details
   |--------------------------------------------------------------------------
   |
