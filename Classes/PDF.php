@@ -1,4 +1,12 @@
 <?php
+/**
+  * This file is part of consoletvs/invoices.
+  *
+  * (c) Erik Campobadal <soc@erik.cat>
+  *
+  * For the full copyright and license information, please view the LICENSE
+  * file that was distributed with this source code.
+  */
 
 namespace ConsoleTVs\Invoices\Classes;
 
@@ -6,6 +14,11 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 use Illuminate\Support\Facades\View;
 
+/**
+ * This is the PDF class.
+ *
+ * @author Erik Campobadal <soc@erik.cat>
+ */
 class PDF
 {
     /**
@@ -14,6 +27,7 @@ class PDF
      * @method generate
      *
      * @param ConsoleTVs\Invoices\Classes\Invoice $invoice
+     * @param string $template
      *
      * @return Dompdf\Dompdf
      */
@@ -37,7 +51,7 @@ class PDF
 
         $pdf->setHttpContext($context);
 
-        $pdf->loadHtml(View::make('invoices::default', ['invoice' => $invoice]));
+        $pdf->loadHtml(View::make('invoices::'.$template, ['invoice' => $invoice]));
         $pdf->render();
 
         return $pdf;

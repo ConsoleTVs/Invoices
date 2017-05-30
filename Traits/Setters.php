@@ -1,10 +1,23 @@
 <?php
+/**
+  * This file is part of consoletvs/invoices.
+  *
+  * (c) Erik Campobadal <soc@erik.cat>
+  *
+  * For the full copyright and license information, please view the LICENSE
+  * file that was distributed with this source code.
+  */
 
 namespace ConsoleTVs\Invoices\Traits;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
+/**
+ * This is the Setters trait.
+ *
+ * @author Erik Campobadal <soc@erik.cat>
+ */
 trait Setters
 {
     /**
@@ -92,7 +105,7 @@ trait Setters
      *
      * @method logo
      *
-     * @param string $logo
+     * @param string $logo_url
      *
      * @return self
      */

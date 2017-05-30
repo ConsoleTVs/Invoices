@@ -1,4 +1,12 @@
 <?php
+/**
+  * This file is part of consoletvs/invoices.
+  *
+  * (c) Erik Campobadal <soc@erik.cat>
+  *
+  * For the full copyright and license information, please view the LICENSE
+  * file that was distributed with this source code.
+  */
 
 namespace ConsoleTVs\Invoices\Classes;
 
@@ -6,6 +14,12 @@ use Carbon\Carbon;
 use ConsoleTVs\Invoices\Traits\Setters;
 use Illuminate\Support\Collection;
 
+
+/**
+ * This is the Invoice class.
+ *
+ * @author Erik Campobadal <soc@erik.cat>
+ */
 class Invoice
 {
     use Setters;
@@ -160,6 +174,7 @@ class Invoice
      * @param string $name
      * @param int    $price
      * @param int    $ammount
+     * @param string    $id
      *
      * @return self
      */
@@ -283,6 +298,8 @@ class Invoice
      * Show the PDF in the browser.
      *
      * @method show
+     *
+     * @param string $name
      *
      * @return response
      */
