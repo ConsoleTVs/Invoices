@@ -1,3 +1,10 @@
+## Installation
+
+```
+composer require consoletvs/invoices
+```
+
+
 Example Usage:
 
 ```php
