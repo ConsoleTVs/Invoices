@@ -19,5 +19,10 @@
             "email": "ConsoleTVs@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "ConsoleTVs\\Invoices\\": "."
+        }
+    },
     "minimum-stability": "dev"
 }
