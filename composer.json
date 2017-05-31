@@ -10,7 +10,8 @@
         "ext-bcmath": "*",
         "illuminate/support": "^5.4",
         "illuminate/view": "^5.4",
-        "nesbot/carbon":  "^1.22"
+        "nesbot/carbon": "^1.22",
+        "dompdf/dompdf": "^0.8"
     },
     "license": "MIT",
     "authors": [
