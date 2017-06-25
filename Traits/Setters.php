@@ -179,6 +179,22 @@ trait Setters
 
         return $this;
     }
+ 
+    /**
+     * Set the invoice currency.
+     *
+     * @method currency
+     *
+     * @param string $currency
+     *
+     * @return self
+     */
+    public function currency($currency)
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
 
     /**
      * Set the invoice footnote.
