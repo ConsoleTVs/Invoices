@@ -16,7 +16,7 @@
             <div style="margin-left:300pt;">
                 <b>Date: </b> {{ $invoice->date->formatLocalized('%A %d %B %Y') }}<br />
                 @if ($invoice->number)
-                    <b>Invocie #: </b> {{ $invoice->number }}
+                    <b>Invoice #: </b> {{ $invoice->number }}
                 @endif
                 <br />
             </div>
