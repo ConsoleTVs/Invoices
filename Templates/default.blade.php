@@ -61,7 +61,7 @@
                     <th>ID</th>
                     <th>Item Name</th>
                     <th>Price</th>
-                    <th>Ammount</th>
+                    <th>Amount</th>
                     <th>Total</th>
                 </tr>
             </thead>
