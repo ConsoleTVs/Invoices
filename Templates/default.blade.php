@@ -105,11 +105,11 @@
                                     Taxes {{ $invoice->tax_type == 'percentage' ? '(' . $invoice->tax . '%)' : '' }}
                                 </b>
                             </td>
-                            <td>{{ $invoice->taxPrice() }} {{ $invoice->formatCurrency()->symbol }}</td>
+                            <td>{{ $invoice->taxPriceFormatted() }} {{ $invoice->formatCurrency()->symbol }}</td>
                         </tr>
                         <tr>
                             <td><b>TOTAL</b></td>
-                            <td><b>{{ $invoice->totalPrice() }} {{ $invoice->formatCurrency()->symbol }}</b></td>
+                            <td><b>{{ $invoice->totalPriceFormatted() }} {{ $invoice->formatCurrency()->symbol }}</b></td>
                         </tr>
                     </tbody>
                 </table>

@@ -253,9 +253,20 @@ class Invoice
      *
      * @return int
      */
-    public function totalPrice()
+    private function totalPrice()
     {
         return bcadd($this->subTotalPrice(), $this->taxPrice(), $this->decimals);
+    }
+
+    /**
+     * Return formatted total price.
+     *
+     * @method totalPriceFormatted
+     *
+     * @return int
+     */
+    public function totalPriceFormatted() {
+        return number_format($this->totalPrice(), $this->decimals);
     }
 
     /**
@@ -265,13 +276,24 @@ class Invoice
      *
      * @return float
      */
-    public function taxPrice()
+    private function taxPrice()
     {
         if ($this->tax_type == 'percentage') {
             return bcdiv(bcmul($this->tax, $this->subTotalPrice(), $this->decimals), 100, $this->decimals);
         }
 
         return $this->tax;
+    }
+
+    /**
+     * Return formatted tax.
+     *
+     * @method taxPriceFormatted
+     *
+     * @return int
+     */
+    public function taxPriceFormatted() {
+        return number_format($this->taxPrice(), $this->decimals);
     }
 
     /**
