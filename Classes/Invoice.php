@@ -242,7 +242,8 @@ class Invoice
      *
      * @return int
      */
-    public function subTotalPriceFormatted() {
+    public function subTotalPriceFormatted()
+    {
         return number_format($this->subTotalPrice(), $this->decimals);
     }
 
@@ -265,7 +266,8 @@ class Invoice
      *
      * @return int
      */
-    public function totalPriceFormatted() {
+    public function totalPriceFormatted()
+    {
         return number_format($this->totalPrice(), $this->decimals);
     }
 
@@ -292,7 +294,8 @@ class Invoice
      *
      * @return int
      */
-    public function taxPriceFormatted() {
+    public function taxPriceFormatted()
+    {
         return number_format($this->taxPrice(), $this->decimals);
     }
 
