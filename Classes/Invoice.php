@@ -240,7 +240,7 @@ class Invoice
      *
      * @method subTotalPriceFormatted
      *
-     * @return String
+     * @return int
      */
     public function subTotalPriceFormatted() {
         return number_format(subTotalPrice(), $this->decimals);
