@@ -97,7 +97,7 @@
                     <tbody>
                         <tr>
                             <td><b>Subtotal</b></td>
-                            <td>{{ $invoice->subTotalPrice() }} {{ $invoice->formatCurrency()->symbol }}</td>
+                            <td>{{ $invoice->subTotalPriceFormatted() }} {{ $invoice->formatCurrency()->symbol }}</td>
                         </tr>
                         <tr>
                             <td>

@@ -228,11 +228,22 @@ class Invoice
      *
      * @return int
      */
-    public function subTotalPrice()
+    private function subTotalPrice()
     {
-        return number_format($this->items->sum(function ($item) {
+        return $this->items->sum(function ($item) {
             return bcmul($item['price'], $item['ammount'], $this->decimals);
-        }), $this->decimals);
+        });
+    }
+
+    /**
+     * Return formatted sub total price.
+     *
+     * @method subTotalPriceFormatted
+     *
+     * @return String
+     */
+    public function subTotalPriceFormatted() {
+        return number_format(subTotalPrice(), $this->decimals);
     }
 
     /**
