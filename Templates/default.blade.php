@@ -61,7 +61,7 @@
                     <th>ID</th>
                     <th>Item Name</th>
                     <th>Price</th>
-                    <th>Ammount</th>
+                    <th>Amount</th>
                     <th>Total</th>
                 </tr>
             </thead>
@@ -97,7 +97,7 @@
                     <tbody>
                         <tr>
                             <td><b>Subtotal</b></td>
-                            <td>{{ $invoice->subTotalPrice() }} {{ $invoice->formatCurrency()->symbol }}</td>
+                            <td>{{ $invoice->subTotalPriceFormatted() }} {{ $invoice->formatCurrency()->symbol }}</td>
                         </tr>
                         <tr>
                             <td>
@@ -105,11 +105,11 @@
                                     Taxes {{ $invoice->tax_type == 'percentage' ? '(' . $invoice->tax . '%)' : '' }}
                                 </b>
                             </td>
-                            <td>{{ $invoice->taxPrice() }} {{ $invoice->formatCurrency()->symbol }}</td>
+                            <td>{{ $invoice->taxPriceFormatted() }} {{ $invoice->formatCurrency()->symbol }}</td>
                         </tr>
                         <tr>
                             <td><b>TOTAL</b></td>
-                            <td><b>{{ $invoice->totalPrice() }} {{ $invoice->formatCurrency()->symbol }}</b></td>
+                            <td><b>{{ $invoice->totalPriceFormatted() }} {{ $invoice->formatCurrency()->symbol }}</b></td>
                         </tr>
                     </tbody>
                 </table>
