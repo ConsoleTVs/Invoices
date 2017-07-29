@@ -179,7 +179,7 @@ trait Setters
 
         return $this;
     }
- 
+
     /**
      * Set the invoice currency.
      *
