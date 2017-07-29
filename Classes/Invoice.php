@@ -185,7 +185,7 @@ class Invoice
             'name'       => $name,
             'price'      => $price,
             'ammount'    => $ammount,
-            'totalPrice' => bcmul($price, $ammount, $this->decimals),
+            'totalPrice' => number_format(bcmul($price, $ammount, $this->decimals), $this->decimals),
             'id'         => $id,
         ]));
 
