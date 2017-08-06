@@ -33,7 +33,7 @@ class Invoice
     /**
      * Invoice item collection.
      *
-     * @var Illuminate\Support\Collection
+     * @var |Illuminate\Support\Collection
      */
     public $items;
 
@@ -89,7 +89,7 @@ class Invoice
     /**
      * Invoice Date.
      *
-     * @var Carbon\Carbon
+     * @var |Carbon\Carbon
      */
     public $date;
 
@@ -124,7 +124,7 @@ class Invoice
     /**
      * Stores the PDF object.
      *
-     * @var Dompdf\Dompdf
+     * @var |Dompdf\Dompdf
      */
     private $pdf;
 
@@ -158,7 +158,7 @@ class Invoice
      *
      * @param string $name
      *
-     * @return ConsoleTVs\Invoices\Classes\Invoice
+     * @return |ConsoleTVs\Invoices\Classes\Invoice
      */
     public static function make($name = 'Invoice')
     {
@@ -211,7 +211,7 @@ class Invoice
      *
      * @method formatCurrency
      *
-     * @return stdClass
+     * @return |stdClass
      */
     public function formatCurrency()
     {
@@ -320,13 +320,13 @@ class Invoice
      *
      * @param string $name
      *
-     * @return response
+     * @return void
      */
     public function download($name = 'invoice')
     {
         $this->generate();
 
-        return $this->pdf->stream($name);
+        $this->pdf->stream($name);
     }
 
     /**
@@ -336,12 +336,12 @@ class Invoice
      *
      * @param string $name
      *
-     * @return response
+     * @return void
      */
     public function show($name = 'invoice')
     {
         $this->generate();
 
-        return $this->pdf->stream($name, ['Attachment' => false]);
+        $this->pdf->stream($name, ['Attachment' => false]);
     }
 }
