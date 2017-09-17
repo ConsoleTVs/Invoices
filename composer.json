@@ -25,5 +25,12 @@
             "ConsoleTVs\\Invoices\\": "."
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ConsoleTVs\\Invoices\\InvoicesServiceProvider"
+            ]
+        }
+    },
     "minimum-stability": "dev"
 }
