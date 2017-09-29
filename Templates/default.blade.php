@@ -79,18 +79,16 @@
             </tbody>
         </table>
         <div style="clear:both; position:relative;">
-            <div style="position:absolute; left:0pt; width:250pt;">
-                <h4>Notes:</h4>
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        @if($invoice->notes)
+            @if($invoice->notes)
+                <div style="position:absolute; left:0pt; width:250pt;">
+                    <h4>Notes:</h4>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
                             {{ $invoice->notes }}
-                        @else
-                            &nbsp;
-                        @endif
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
             <div style="margin-left: 300pt;">
                 <h4>Total:</h4>
                 <table class="table table-bordered">
