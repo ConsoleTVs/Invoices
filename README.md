@@ -41,6 +41,8 @@ $invoice = ConsoleTVs\Invoices\Classes\Invoice::make()
                     'country'   => 'Spain',
                 ])
                 ->download('demo');
+                //or save it somewhere
+                ->save('public/myinvoicename.pdf');
 ```
 
 ## Documentation
