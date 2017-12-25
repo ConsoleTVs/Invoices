@@ -342,7 +342,7 @@ class Invoice
     {
         $invoice = $this->generate();
 
-        Storage::put($pathFilename, $invoice->pdf->output());
+        Storage::put($name, $invoice->pdf->output());
     }
 
     /**
