@@ -13,6 +13,7 @@ namespace ConsoleTVs\Invoices\Classes;
 use Carbon\Carbon;
 use ConsoleTVs\Invoices\Traits\Setters;
 use Illuminate\Support\Collection;
+use Storage;
 
 /**
  * This is the Invoice class.
@@ -327,6 +328,21 @@ class Invoice
         $this->generate();
 
         return $this->pdf->stream($name);
+    }
+
+    /**
+     * Save the generated PDF.
+     *
+     * @method save
+     *
+     * @param string $name
+     *
+     */
+    public function save($name = 'invoice.pdf')
+    {
+        $invoice = $this->generate();
+
+        Storage::put($pathFilename, $invoice->pdf->output());
     }
 
     /**
