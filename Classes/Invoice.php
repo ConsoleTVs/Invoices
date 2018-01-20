@@ -180,8 +180,6 @@ class Invoice
      */
     public function addItem($name, $price, $ammount = 1, $id = '-')
     {
-        $price = number_format($price, $this->decimals);
-
         $this->items->push(Collection::make([
             'name'       => $name,
             'price'      => $price,
