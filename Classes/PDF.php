@@ -31,7 +31,7 @@ class PDF
      *
      * @return Dompdf\Dompdf
      */
-    public static function generate(Invoice $invoice, $template = 'default')
+    public static function generate(Invoice $invoice, $template = 'invoices::default')
     {
         $template = strtolower($template);
 
@@ -51,7 +51,7 @@ class PDF
 
         $pdf->setHttpContext($context);
 
-        $pdf->loadHtml(View::make('invoices::'.$template, ['invoice' => $invoice]));
+        $pdf->loadHtml(View::make($template, ['invoice' => $invoice]));
         $pdf->render();
 
         return $pdf;
