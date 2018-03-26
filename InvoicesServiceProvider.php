@@ -26,7 +26,7 @@ class InvoicesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->loadViewsFrom(__DIR__.'/Templates', 'invoices');
+        $this->loadViewsFrom(__DIR__.'/Templates', 'invoices');
         $this->publishes([
             __DIR__.'/Templates' => resource_path('views/vendor/invoices'),
             __DIR__.'/Config/invoices.php' => config_path('invoices.php'),
