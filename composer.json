@@ -1,5 +1,5 @@
 {
-    "name": "consoletvs/invoices",
+    "name": "newridetech/invoices",
     "description": "Generate PDF invoices for your customers in laravel",
     "type": "library",
     "keywords": [
@@ -23,13 +23,6 @@
     "autoload": {
         "psr-4": {
             "ConsoleTVs\\Invoices\\": "."
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "ConsoleTVs\\Invoices\\InvoicesServiceProvider"
-            ]
         }
     },
     "minimum-stability": "dev"
