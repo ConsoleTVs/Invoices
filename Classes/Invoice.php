@@ -305,7 +305,7 @@ class Invoice
      *
      * @return self
      */
-    private function generate($template = null)
+    private function generate($template = 'vendor.invoices.default')
     {
         $this->pdf = PDF::generate($this, $template);
 
@@ -321,7 +321,7 @@ class Invoice
      *
      * @return response
      */
-    public function download($name = 'invoice', $template = null)
+    public function download($name = 'invoice', $template = 'vendor.invoices.default')
     {
         $this->generate($template);
 
@@ -336,7 +336,7 @@ class Invoice
      * @param string $name
      *
      */
-    public function save($name = 'invoice.pdf', $template = null)
+    public function save($name = 'invoice.pdf', $template = 'vendor.invoices.default')
     {
         $invoice = $this->generate($template);
 
@@ -352,7 +352,7 @@ class Invoice
      *
      * @return response
      */
-    public function show($name = 'invoice', $template = null)
+    public function show($name = 'invoice', $template = 'vendor.invoices.default')
     {
         $this->generate($template);
 
