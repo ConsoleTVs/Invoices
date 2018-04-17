@@ -305,9 +305,9 @@ class Invoice
      *
      * @return self
      */
-    private function generate($template = 'vendor.invoices.default')
+    private function generate()
     {
-        $this->pdf = PDF::generate($this, $template);
+        $this->pdf = PDF::generate($this);
 
         return $this;
     }
@@ -321,9 +321,9 @@ class Invoice
      *
      * @return response
      */
-    public function download($name = 'invoice', $template = 'vendor.invoices.default')
+    public function download($name = 'invoice')
     {
-        $this->generate($template);
+        $this->generate();
 
         return $this->pdf->stream($name);
     }
@@ -336,9 +336,9 @@ class Invoice
      * @param string $name
      *
      */
-    public function save($name = 'invoice.pdf', $template = 'vendor.invoices.default')
+    public function save($name = 'invoice.pdf')
     {
-        $invoice = $this->generate($template);
+        $invoice = $this->generate();
 
         Storage::put($name, $invoice->pdf->output());
     }
@@ -352,9 +352,9 @@ class Invoice
      *
      * @return response
      */
-    public function show($name = 'invoice', $template = 'vendor.invoices.default')
+    public function show($name = 'invoice')
     {
-        $this->generate($template);
+        $this->generate();
 
         return $this->pdf->stream($name, ['Attachment' => false]);
     }
