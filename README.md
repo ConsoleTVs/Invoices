@@ -1,4 +1,4 @@
-<p align="center"><a href="https://erik.cat/projects/Invoices"><img height="250" src="http://i.imgur.com/t9G3rFM.png"></a></p>
+<p align="center"><a href="https://erik.cat/projects/invoices"><img height="250" src="http://i.imgur.com/t9G3rFM.png"></a></p>
 
 <p align="center">
 <a href="https://styleci.io/repos/92863426"><img src="https://styleci.io/repos/92863426/shield?branch=master&style=flat" alt="StyleCI Status"></a>
@@ -48,7 +48,7 @@ $invoice = ConsoleTVs\Invoices\Classes\Invoice::make()
 ## Documentation
 
 <p align="center">
-<a href="https://erik.cat/projects/Invoices/docs"><img src="http://i.imgur.com/47WnADd.png"></a>
+<a href="https://erik.cat/projects/invoices"><img src="http://i.imgur.com/47WnADd.png"></a>
 </p>
 
 ## License
