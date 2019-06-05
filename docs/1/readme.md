@@ -220,6 +220,17 @@ Invoice name.
 * Visibility: **public**
 
 
+### $template
+
+    public string $template
+
+Invoice template.
+
+
+
+* Visibility: **public**
+
+
 ### $items
 
     public \ConsoleTVs\Invoices\Classes\Illuminate\Support\Collection $items
@@ -410,6 +421,18 @@ Return a new instance of Invoice.
 * $name **string**
 
 
+### template
+
+    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::template(string $template)
+
+Select template for invoice.
+
+* Visibility: **public**
+* Default: **default**
+
+
+#### Arguments
+* $name **template**
 
 ### addItem
 
@@ -713,5 +736,3 @@ Set the invoice footnote.
 
 #### Arguments
 * $footnote **string**
-
-
