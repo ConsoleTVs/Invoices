@@ -32,6 +32,13 @@ class Invoice
     public $name;
 
     /**
+     * Invoice template.
+     *
+     * @var string
+     */
+    public $template;
+
+    /**
      * Invoice item collection.
      *
      * @var Illuminate\Support\Collection
@@ -139,6 +146,7 @@ class Invoice
     public function __construct($name = 'Invoice')
     {
         $this->name = $name;
+        $this->template = 'default';
         $this->items = Collection::make([]);
         $this->currency = config('invoices.currency');
         $this->tax = config('invoices.tax');
@@ -164,6 +172,22 @@ class Invoice
     public static function make($name = 'Invoice')
     {
         return new self($name);
+    }
+
+    /**
+     * Select template for invoice.
+     *
+     * @method template
+     *
+     * @param string $template
+     *
+     * @return self
+     */
+    public function template($template = 'default')
+    {
+        $this->template = $template;
+
+        return $this;
     }
 
     /**
@@ -307,7 +331,7 @@ class Invoice
      */
     private function generate()
     {
-        $this->pdf = PDF::generate($this);
+        $this->pdf = PDF::generate($this, $this->template);
 
         return $this;
     }
