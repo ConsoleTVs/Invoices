@@ -4,11 +4,33 @@
 composer require consoletvs/invoices
 ```
 
+Add 
+
+```
+ConsoleTVs\Invoices\InvoicesServiceProvider::class, 
+```
+to the `providers` section in `app.php`
+
+Add 
+
+```
+'Invoice' => ConsoleTVs\Invoices\Classes\Invoice::class,
+```
+
+to the `aliases` section in `app.php`
+
+```
+php artisan vendor:publish --provider="ConsoleTVs\Invoices\InvoicesServiceProvider"
+composer dumpautoload
+```
 
 Example Usage:
 
 ```php
-$invoice = ConsoleTVs\Invoices\Classes\Invoice::make()
+...
+use ConsoleTVs\Invoices\Classes\Invoice;
+...
+$invoice = Invoice::make()
                 ->addItem('Test Item', 10.25, 2, 1412)
                 ->addItem('Test Item 2', 5, 2, 923)
                 ->addItem('Test Item 3', 15.55, 5, 42)
