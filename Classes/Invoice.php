@@ -53,20 +53,6 @@ class Invoice
     public $currency;
 
     /**
-     * Invoice tax.
-     *
-     * @var int
-     */
-    public $tax;
-
-    /**
-     * Invoice tax type.
-     *
-     * @var string
-     */
-    public $tax_type;
-
-    /**
      * Invoice number.
      *
      * @var int
@@ -130,11 +116,19 @@ class Invoice
     public $footnote;
 
     /**
+
+     * Invoice Tax Rates Default.
+     *
+     * @var array
+     */
+    public $tax_rates;
+
      * Invoice Due Date.
      *
      * @var Carbon\Carbon
      */
     public $due_date = null;
+
 
     /**
      * Stores the PDF object.
@@ -156,8 +150,6 @@ class Invoice
         $this->template = 'default';
         $this->items = Collection::make([]);
         $this->currency = config('invoices.currency');
-        $this->tax = config('invoices.tax');
-        $this->tax_type = config('invoices.tax_type');
         $this->decimals = config('invoices.decimals');
         $this->logo = config('invoices.logo');
         $this->logo_height = config('invoices.logo_height');
@@ -165,6 +157,7 @@ class Invoice
         $this->business_details = Collection::make(config('invoices.business_details'));
         $this->customer_details = Collection::make([]);
         $this->footnote = config('invoices.footnote');
+        $this->tax_rates = config('invoices.tax_rates');
         $this->due_date = config('invoices.due_date') != null ? Carbon::parse(config('invoices.due_date')) : null;
     }
 
@@ -309,13 +302,28 @@ class Invoice
      *
      * @return float
      */
-    private function taxPrice()
+    private function taxPrice(Object $tax_rate = null)
     {
-        if ($this->tax_type == 'percentage') {
-            return bcdiv(bcmul($this->tax, $this->subTotalPrice(), $this->decimals), 100, $this->decimals);
+        if(is_null($tax_rate)){
+            $tax_total = 0;
+
+            foreach($this->tax_rates as $taxe){
+                if ($taxe['tax_type'] == 'percentage') {
+                    $tax_total += bcdiv(bcmul($taxe['tax'], $this->subTotalPrice(), $this->decimals), 100, $this->decimals);
+                }else{
+                    $tax_total += $taxe['tax'];
+                }
+            }
+
+            return $tax_total;
+        }
+        
+        if ($tax_rate->tax_type == 'percentage') {
+            return bcdiv(bcmul($tax_rate->tax, $this->subTotalPrice(), $this->decimals), 100, $this->decimals);
         }
 
-        return $this->tax;
+        return $tax_rate->tax;
+        
     }
 
     /**
@@ -325,9 +333,9 @@ class Invoice
      *
      * @return int
      */
-    public function taxPriceFormatted()
+    public function taxPriceFormatted($tax_rate)
     {
-        return number_format($this->taxPrice(), $this->decimals);
+        return number_format($this->taxPrice($tax_rate), $this->decimals);
     }
 
     /**
