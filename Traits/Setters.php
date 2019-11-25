@@ -211,4 +211,20 @@ trait Setters
 
         return $this;
     }
+
+    /**
+     * Set the invoice due date.
+     *
+     * @method due_date
+     *
+     * @param Carbon $due_date
+     *
+     * @return self
+     */
+    public function due_date(Carbon $due_date = null)
+    {
+        $this->due_date = $due_date;
+
+        return $this;
+    }
 }

@@ -116,11 +116,19 @@ class Invoice
     public $footnote;
 
     /**
+
      * Invoice Tax Rates Default.
      *
      * @var array
      */
     public $tax_rates;
+
+     * Invoice Due Date.
+     *
+     * @var Carbon\Carbon
+     */
+    public $due_date = null;
+
 
     /**
      * Stores the PDF object.
@@ -150,6 +158,7 @@ class Invoice
         $this->customer_details = Collection::make([]);
         $this->footnote = config('invoices.footnote');
         $this->tax_rates = config('invoices.tax_rates');
+        $this->due_date = config('invoices.due_date') != null ? Carbon::parse(config('invoices.due_date')) : null;
     }
 
     /**
