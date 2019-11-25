@@ -97,14 +97,16 @@
                             <td><b>Subtotal</b></td>
                             <td>{{ $invoice->subTotalPriceFormatted() }} {{ $invoice->formatCurrency()->symbol }}</td>
                         </tr>
-                        <tr>
-                            <td>
-                                <b>
-                                    Taxes {{ $invoice->tax_type == 'percentage' ? '(' . $invoice->tax . '%)' : '' }}
-                                </b>
-                            </td>
-                            <td>{{ $invoice->taxPriceFormatted() }} {{ $invoice->formatCurrency()->symbol }}</td>
-                        </tr>
+                        @foreach($invoice->tax_rates as $tax_rate)
+                            <tr>
+                                <td>
+                                    <b>
+                                        {{ $tax_rate['name'].' '.($tax_rate['tax_type'] == 'percentage' ? '(' . $tax_rate['tax'] . '%)' : '') }}
+                                    </b>
+                                </td>
+                                <td>{{ $invoice->taxPriceFormatted((object)$tax_rate) }} {{ $invoice->formatCurrency()->symbol }}</td>
+                            </tr>
+                        @endforeach
                         <tr>
                             <td><b>TOTAL</b></td>
                             <td><b>{{ $invoice->totalPriceFormatted() }} {{ $invoice->formatCurrency()->symbol }}</b></td>

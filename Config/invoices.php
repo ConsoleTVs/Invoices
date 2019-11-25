@@ -101,4 +101,24 @@ return [
 
   'footnote' => '',
 
+  /*
+  |--------------------------------------------------------------------------
+  | Default Tax Rates
+  |--------------------------------------------------------------------------
+  |
+  | This array group multiple tax rates.
+  |
+  | The tax type accepted values are: 'percentage' and 'fixed'.
+  | The percentage type calculates the tax depending on the invoice price, and
+  | the fixed type simply adds a fixed ammount to the total price.
+  | You can't mix percentage and fixed tax rates.
+  */
+  'tax_rates' => [
+    [
+        'name'      => '',
+        'tax'       => 0,
+        'tax_type'  => 'percentage',
+    ],
+  ],
+
 ];
