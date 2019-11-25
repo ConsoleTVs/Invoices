@@ -24,31 +24,6 @@ return [
 
    'decimals' => 2,
 
-    /*
-    |--------------------------------------------------------------------------
-    | Default Tax
-    |--------------------------------------------------------------------------
-    |
-    | This value is the default tax that is going to be used in invoices.
-    | You can change it on each invoice individually.
-    */
-
-    'tax' => 0,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Default Tax Type
-    |--------------------------------------------------------------------------
-    |
-    | This value is the default tax type that is going to be used in invoices.
-    | You can change it on each invoice individually.
-    | The tax type accepted values are: 'percentage' and 'fixed'
-    | The percentage type calculates the tax depending on the invoice price, and
-    | the fixed type simply adds a fixed ammount to the total price
-    */
-
-   'tax_type' => 'percentage',
-
    /*
    |--------------------------------------------------------------------------
    | Default Invoice Logo
@@ -101,4 +76,24 @@ return [
 
   'footnote' => '',
 
+  /*
+  |--------------------------------------------------------------------------
+  | Default Tax Rates
+  |--------------------------------------------------------------------------
+  |
+  | This array group multiple tax rates.
+  |
+  | The tax type accepted values are: 'percentage' and 'fixed'.
+  | The percentage type calculates the tax depending on the invoice price, and
+  | the fixed type simply adds a fixed ammount to the total price.
+  | You can't mix percentage and fixed tax rates.
+  */
+
+  'tax_rates' => [
+    [
+        'name'      => '',
+        'tax'       => 0,
+        'tax_type'  => 'percentage',
+    ],
+  ],
 ];
