@@ -130,6 +130,13 @@ class Invoice
     public $footnote;
 
     /**
+     * Invoice Due Date.
+     *
+     * @var Carbon\Carbon
+     */
+    public $due_date = null;
+
+    /**
      * Stores the PDF object.
      *
      * @var Dompdf\Dompdf
@@ -158,6 +165,7 @@ class Invoice
         $this->business_details = Collection::make(config('invoices.business_details'));
         $this->customer_details = Collection::make([]);
         $this->footnote = config('invoices.footnote');
+        $this->due_date = config('invoices.due_date') != null ? Carbon::parse(config('invoices.due_date')) : null;
     }
 
     /**
