@@ -15,6 +15,9 @@
             </div>
             <div style="margin-left:300pt;">
                 <b>Date: </b> {{ $invoice->date->formatLocalized('%A %d %B %Y') }}<br />
+                @if ($invoice->due_date)
+                    <b>Due date: </b>{{ $invoice->due_date->formatLocalized('%A %d %B %Y') }}<br />
+                @endif
                 @if ($invoice->number)
                     <b>Invoice #: </b> {{ $invoice->number }}
                 @endif
