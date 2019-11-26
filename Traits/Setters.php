@@ -69,38 +69,6 @@ trait Setters
     }
 
     /**
-     * Set the invoice tax.
-     *
-     * @method tax
-     *
-     * @param float $tax
-     *
-     * @return self
-     */
-    public function tax($tax)
-    {
-        $this->tax = $tax;
-
-        return $this;
-    }
-
-    /**
-     * Set the invoice tax type.
-     *
-     * @method taxType
-     *
-     * @param string $tax_type
-     *
-     * @return self
-     */
-    public function taxType($tax_type)
-    {
-        $this->tax_type = $tax_type;
-
-        return $this;
-    }
-
-    /**
      * Set the invoice logo URL.
      *
      * @method logo
