@@ -296,14 +296,14 @@ class Invoice
      */
     private function taxPrice(Object $tax_rate = null)
     {
-        if(is_null($tax_rate)){
+        if (is_null($tax_rate)) {
             $tax_total = 0;
             foreach($this->tax_rates as $taxe){
                 if ($taxe['tax_type'] == 'percentage') {
                     $tax_total += bcdiv(bcmul($taxe['tax'], $this->subTotalPrice(), $this->decimals), 100, $this->decimals);
-                }else{
-                    $tax_total += $taxe['tax'];
+                    continue;
                 }
+                $tax_total += $taxe['tax'];
             }
             return $tax_total;
         }
