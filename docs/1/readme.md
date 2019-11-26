@@ -17,7 +17,7 @@ $invoice = ConsoleTVs\Invoices\Classes\Invoice::make()
                 ->addItem('Test Item 6', 6.41, 3, 452)
                 ->addItem('Test Item 7', 2.86, 1, 1526)
                 ->number(4021)
-                ->tax(21)
+                ->due_date(Carbon::now()->addMonths(1))
                 ->notes('Lrem ipsum dolor sit amet, consectetur adipiscing elit.')
                 ->customer([
                     'name'      => 'Èrik Campobadal Forés',
@@ -84,6 +84,12 @@ Bootstrap any application services.
     void ConsoleTVs\Invoices\InvoicesServiceProvider::register()
 
 Register any application services.
+
+
+
+## Special thanks
+
+* [Codevio](https://github.com/codevio);
 
 
 
