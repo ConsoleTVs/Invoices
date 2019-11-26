@@ -86,13 +86,6 @@ Bootstrap any application services.
 Register any application services.
 
 
-
-## Special thanks
-
-* [Codevio](https://github.com/codevio);
-
-
-
 * Visibility: **public**
 
 
@@ -742,3 +735,9 @@ Set the invoice footnote.
 
 #### Arguments
 * $footnote **string**
+
+
+
+## Special thanks
+
+* [Codevio](https://github.com/codevio);
