@@ -738,6 +738,26 @@ Set the invoice footnote.
 
 
 
-## Special thanks
+### due_date
 
-* [Codevio](https://github.com/codevio);
+    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::due_date(Carbon $due_date)
+
+Set the invoice due date.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $due_date **Carbon**
+
+
+
+### tax_rates
+
+Array of tax rates for invoices.
+
+
+
+* Visibility: **public**
