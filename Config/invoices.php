@@ -107,4 +107,32 @@ return [
   */
   'due_date' => date('M dS ,Y',strtotime('+3 months')),
 
+  /*
+  | Default Invoice Due Date
+  |--------------------------------------------------------------------------
+  |
+  | This value is the default due date that is going to be used in invoices.
+  | You can change it on each invoice individually.
+  | You can set it null to remove the due date on all invoices.
+  */
+  'due_date' => date('M dS ,Y',strtotime('+3 months')),
+
+  /*
+  | Default pagination parameter
+  |--------------------------------------------------------------------------
+  |
+  | This value is the default pagination parameter.
+  | If true and page count are higher than 1, pagination will show at the bottom.
+  */
+  'with_pagination' => true,
+
+  /*
+  | Duplicate header parameter
+  |--------------------------------------------------------------------------
+  |
+  | This value is the default header parameter.
+  | If true header will be duplicated on each page.
+  */
+  'duplicate_header' => false,
+
 ];

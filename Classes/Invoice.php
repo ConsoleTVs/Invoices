@@ -130,6 +130,20 @@ class Invoice
     public $due_date = null;
 
     /**
+     * Invoice pagination.
+     *
+     * @var boolean
+     */
+    public $with_pagination;
+
+    /**
+     * Invoice header duplication.
+     *
+     * @var boolean
+     */
+    public $duplicate_header;
+
+    /**
      * Stores the PDF object.
      *
      * @var Dompdf\Dompdf
@@ -158,6 +172,8 @@ class Invoice
         $this->footnote = config('invoices.footnote');
         $this->tax_rates = config('invoices.tax_rates');
         $this->due_date = config('invoices.due_date') != null ? Carbon::parse(config('invoices.due_date')) : null;
+        $this->with_pagination = config('invoices.with_pagination');
+        $this->duplicate_header = config('invoices.duplicate_header');
     }
 
     /**

@@ -8,7 +8,7 @@ composer require consoletvs/invoices
 Example Usage:
 
 ```php
-$invoice = ConsoleTVs\Invoices\Classes\Invoice::make()
+$invoice = \ConsoleTVs\Invoices\Classes\Invoice::make()
                 ->addItem('Test Item', 10.25, 2, 1412)
                 ->addItem('Test Item 2', 5, 2, 923)
                 ->addItem('Test Item 3', 15.55, 5, 42)
@@ -17,6 +17,8 @@ $invoice = ConsoleTVs\Invoices\Classes\Invoice::make()
                 ->addItem('Test Item 6', 6.41, 3, 452)
                 ->addItem('Test Item 7', 2.86, 1, 1526)
                 ->number(4021)
+                ->with_pagination(true)
+                ->duplicate_header(true)
                 ->due_date(Carbon::now()->addMonths(1))
                 ->notes('Lrem ipsum dolor sit amet, consectetur adipiscing elit.')
                 ->customer([
@@ -761,3 +763,34 @@ Array of tax rates for invoices.
 
 
 * Visibility: **public**
+
+
+### with_pagination
+
+    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::with_pagination(boolean $with_pagination)
+
+If true and page count are higher than 1, pagination will show at the bottom.
+
+
+
+* Visibility: **public**
+
+
+
+#### Arguments
+* $duplicate_header **boolean**
+
+
+### with_pagination
+
+    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::duplicate_header(boolean $duplicate_header)
+
+If true header will be duplicated on each page.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $duplicate_header **boolean**
