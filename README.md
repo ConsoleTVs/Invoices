@@ -20,7 +20,7 @@ This is a sample invoice generated using this library:
 ![Sample Invoice](https://i.gyazo.com/768f5b59791162e432f9cdfa15f017bc.png)
 
 ```php
-$invoice = ConsoleTVs\Invoices\Classes\Invoice::make()
+$invoice = \ConsoleTVs\Invoices\Classes\Invoice::make()
                 ->addItem('Test Item', 10.25, 2, 1412)
                 ->addItem('Test Item 2', 5, 2, 923)
                 ->addItem('Test Item 3', 15.55, 5, 42)
@@ -29,6 +29,8 @@ $invoice = ConsoleTVs\Invoices\Classes\Invoice::make()
                 ->addItem('Test Item 6', 6.41, 3, 452)
                 ->addItem('Test Item 7', 2.86, 1, 1526)
                 ->number(4021)
+                ->with_pagination(true)
+                ->duplicate_header(true)
                 ->due_date(Carbon::now()->addMonths(1))
                 ->notes('Lrem ipsum dolor sit amet, consectetur adipiscing elit.')
                 ->customer([

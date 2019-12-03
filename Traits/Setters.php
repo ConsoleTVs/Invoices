@@ -195,5 +195,36 @@ trait Setters
         return $this;
     }
 
+    /**
+     * Show/hide the invoice pagination.
+     *
+     * @method with_pagination
+     *
+     * @param boolean $with_pagination
+     *
+     * @return self
+     */
+    public function with_pagination($with_pagination)
+    {
+        $this->with_pagination = $with_pagination;
+        return $this;
+    }
+
+    /**
+     * Duplicate the header on each page.
+     *
+     * @method duplicate_header
+     *
+     * @param boolean $duplicate_header
+     *
+     * @return self
+     */
+    public function duplicate_header($duplicate_header)
+    {
+        $this->duplicate_header = $duplicate_header;
+        return $this;
+    }
+
+
     
 }

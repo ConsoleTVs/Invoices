@@ -107,4 +107,22 @@ return [
   */
   'due_date' => date('M dS ,Y',strtotime('+3 months')),
 
+  /*
+  | Default pagination parameter
+  |--------------------------------------------------------------------------
+  |
+  | This value is the default pagination parameter.
+  | If true and page count are higher than 1, pagination will show at the bottom.
+  */
+  'with_pagination' => true,
+
+  /*
+  | Duplicate header parameter
+  |--------------------------------------------------------------------------
+  |
+  | This value is the default header parameter.
+  | If true header will be duplicated on each page.
+  */
+  'duplicate_header' => false,
+
 ];

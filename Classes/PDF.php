@@ -38,6 +38,7 @@ class PDF
         $options = new Options();
 
         $options->set('isRemoteEnabled', true);
+        $options->set('isPhpEnabled', true);
 
         $pdf = new Dompdf($options);
 
@@ -50,6 +51,8 @@ class PDF
         ]);
 
         $pdf->setHttpContext($context);
+
+        $GLOBALS['with_pagination'] = $invoice->with_pagination;
 
         $pdf->loadHtml(View::make('invoices::'.$template, ['invoice' => $invoice]));
         $pdf->render();
