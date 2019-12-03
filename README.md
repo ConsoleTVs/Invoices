@@ -42,7 +42,7 @@ $invoice = \ConsoleTVs\Invoices\Classes\Invoice::make()
                     'city'      => 'Manresa',
                     'country'   => 'Spain',
                 ])
-                ->download('demo');
+                ->download('demo')
                 //or save it somewhere
                 ->save('public/myinvoicename.pdf');
 ```
