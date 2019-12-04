@@ -215,7 +215,7 @@ class Invoice
      * @param int    $price
      * @param int    $ammount
      * @param string $id
-     * @param string $image_url
+     * @param string $imageUrl
      *
      * @return self
      */
