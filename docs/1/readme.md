@@ -544,6 +544,10 @@ Downloads the generated PDF.
 * Visibility: **public**
 
 
+#### Arguments
+* $name **string**
+
+
 
 ### shouldDisplayImageColumn
 
@@ -555,11 +559,6 @@ Determine if we should display or not the image column on the invoice.
 
 
 * Visibility: **public**
-
-
-
-#### Arguments
-* $name **string**
 
 
 
