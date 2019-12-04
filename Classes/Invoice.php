@@ -215,10 +215,11 @@ class Invoice
      * @param int    $price
      * @param int    $ammount
      * @param string $id
+     * @param string $image_url
      *
      * @return self
      */
-    public function addItem($name, $price, $ammount = 1, $id = '-')
+    public function addItem($name, $price, $ammount = 1, $id = '-', $imageUrl = null)
     {
         $this->items->push(Collection::make([
             'name'       => $name,
@@ -226,6 +227,7 @@ class Invoice
             'ammount'    => $ammount,
             'totalPrice' => number_format(bcmul($price, $ammount, $this->decimals), $this->decimals),
             'id'         => $id,
+            'imageUrl'   => $imageUrl,
         ]));
 
         return $this;
@@ -409,5 +411,22 @@ class Invoice
         $this->generate();
 
         return $this->pdf->stream($name, ['Attachment' => false]);
+    }
+
+    /**
+     * Return true/false if one item contains image.
+     * Determine if we should display or not the image column on the invoice.
+     * 
+     * @method shouldDisplayImageColumn
+     *
+     * @return boolean
+     */
+    public function shouldDisplayImageColumn()
+    {
+        foreach($this->items as $item){
+            if($item['imageUrl'] != null){
+                return true;
+            }
+        }
     }
 }

@@ -16,6 +16,7 @@ $invoice = \ConsoleTVs\Invoices\Classes\Invoice::make()
                 ->addItem('Test Item 5', 3.12, 1, 3142)
                 ->addItem('Test Item 6', 6.41, 3, 452)
                 ->addItem('Test Item 7', 2.86, 1, 1526)
+                ->addItem('Test Item 8', 5, 2, 923, 'https://dummyimage.com/64x64/000/fff')
                 ->number(4021)
                 ->with_pagination(true)
                 ->duplicate_header(true)
@@ -541,6 +542,20 @@ Downloads the generated PDF.
 
 
 * Visibility: **public**
+
+
+
+### shouldDisplayImageColumn
+
+    \ConsoleTVs\Invoices\Classes\response ConsoleTVs\Invoices\Classes\Invoice::shouldDisplayImageColumn()
+
+Return true/false if one item contains image.
+Determine if we should display or not the image column on the invoice.
+
+
+
+* Visibility: **public**
+
 
 
 #### Arguments
