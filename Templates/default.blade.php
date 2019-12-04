@@ -134,6 +134,9 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        @if($invoice->shouldDisplayImageColumn())
+                            <th>Image</th>
+                        @endif
                         <th>ID</th>
                         <th>Item Name</th>
                         <th>Price</th>
@@ -145,6 +148,9 @@
                     @foreach ($invoice->items as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
+                            @if($invoice->shouldDisplayImageColumn())
+                                <td>@if(!is_null($item->get('imageUrl'))) <img src="{{ url($item->get('imageUrl')) }}" />@endif</td>
+                            @endif
                             <td>{{ $item->get('id') }}</td>
                             <td>{{ $item->get('name') }}</td>
                             <td>{{ $item->get('price') }} {{ $invoice->formatCurrency()->symbol }}</td>
