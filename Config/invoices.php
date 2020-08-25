@@ -57,7 +57,7 @@ return [
   */
 
   'business_details' => [
-      'name'        => 'My Company',
+      'name'        => env('APP_NAME', 'My Company'),
       'id'          => '1234567890',
       'phone'       => '+34 123 456 789',
       'location'    => 'Main Street 1st',
