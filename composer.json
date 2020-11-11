@@ -8,8 +8,8 @@
     ],
     "require": {
         "ext-bcmath": "*",
-        "illuminate/support": "^5.0|^6.0|^7.0",
-        "illuminate/view": "^5.0|^6.0|^7.0",
+        "illuminate/support": "^5.0|^6.0|^7.0|^8.0",
+        "illuminate/view": "^5.0|^6.0|^7.0|^8.0",
         "nesbot/carbon": ">1.22",
         "dompdf/dompdf": "^0.8"
     },
