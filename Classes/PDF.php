@@ -36,7 +36,7 @@ class PDF
         $customHtmlTemplate = false;
         if(self::containsHtml($template)) {
             $customHtmlTemplate = true;
-            $filename = uniqid('blade_',true);
+            $filename = str_replace('.','',uniqid('blade_',true));
             $path = storage_path("framework/views/tmp");
             View::addLocation($path);
             $filepath = $path . DIRECTORY_SEPARATOR . "$filename.blade.php";
