@@ -25,8 +25,8 @@
         "rounding": 0,
         "code": "EUR",
         "name_plural": "euros",
-        "thousands_sep": ",",
-        "dec_point": "."
+        "thousands_sep": ".",
+        "dec_point": ","
     },
     "AED": {
         "symbol": "AED",
