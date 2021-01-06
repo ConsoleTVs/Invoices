@@ -151,6 +151,12 @@ class Invoice
     private $pdf;
 
     /**
+     * Json of currencies
+     *
+     * @var object
+     */
+
+    /**
      * Create a new invoice instance.
      *
      * @method __construct
@@ -256,12 +262,12 @@ class Invoice
      */
     public function formatCurrency()
     {
-        if(null === $this->currency) {
-            $currencies = json_decode(file_get_contents(__DIR__ . '/../Currencies.json'));
-            $currency = $this->currency;
+        if(null === $this->currencies) {
+            $this->currencies = json_decode(file_get_contents(__DIR__ . '/../Currencies.json'));
         }
+        $currency = $this->currency;
 
-        return $currencies->$currency;
+        return $this->currencies->$currency;
     }
 
     /**
