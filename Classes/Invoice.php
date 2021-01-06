@@ -155,6 +155,7 @@ class Invoice
      *
      * @var object
      */
+    private $currencies;
 
     /**
      * Create a new invoice instance.
