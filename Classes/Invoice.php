@@ -280,8 +280,7 @@ class Invoice
      */
     protected function getDecPoint()
     {
-        $format = $this->formatCurrency();
-        return $this->format->dec_point ?: ".";
+        return $this->formatCurrency()->dec_point ?: ".";
     }
 
     /**
@@ -293,8 +292,7 @@ class Invoice
      */
     protected function getThousandsSep()
     {
-        $format = $this->formatCurrency();
-        return $this->format->thousands_sep ?: ",";
+        return $this->formatCurrency()->thousands_sep ?: ",";
     }
 
     /**
