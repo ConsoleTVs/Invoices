@@ -305,7 +305,7 @@ class Invoice
     public function subTotalPrice()
     {
         return $this->items->sum(function ($item) {
-            return bcmul($item['price'], $item['ammount'], $this->decimals, $this->getDecPoint(), $this->getThousandsSep());
+            return bcmul($item['price'], $item['ammount'], $this->decimals);
         });
     }
 
