@@ -1,12 +1,12 @@
 <?php
 /**
-  * This file is part of consoletvs/invoices.
-  *
-  * (c) Erik Campobadal <soc@erik.cat>
-  *
-  * For the full copyright and license information, please view the LICENSE
-  * file that was distributed with this source code.
-  */
+ * This file is part of consoletvs/invoices.
+ *
+ * (c) Erik Campobadal <soc@erik.cat>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace ConsoleTVs\Invoices\Classes;
 
@@ -33,7 +33,21 @@ class PDF
      */
     public static function generate(Invoice $invoice, $template = 'default')
     {
-        $template = strtolower($template);
+        $customHtmlTemplate = false;
+        if(self::containsHtml($template)) {
+            $customHtmlTemplate = true;
+            $filename = str_replace('.','',uniqid('blade_',true));
+            $path = storage_path("framework/views/tmp");
+            View::addLocation($path);
+            $filepath = $path . DIRECTORY_SEPARATOR . "$filename.blade.php";
+            if (!is_dir($path)) {
+                mkdir($path, 0777, true);
+            }
+            file_put_contents($filepath, trim($template));
+            $template = $filename;
+        } else {
+            $template = 'invoices::'.strtolower($template);
+        }
 
         $options = new Options();
 
@@ -54,9 +68,18 @@ class PDF
 
         $GLOBALS['with_pagination'] = $invoice->with_pagination;
 
-        $pdf->loadHtml(View::make('invoices::'.$template, ['invoice' => $invoice]));
+        $pdf->loadHtml(View::make($template, ['invoice' => $invoice]));
         $pdf->render();
 
+        if($customHtmlTemplate){
+            unlink($filepath);
+        }
+
         return $pdf;
+    }
+
+    protected static function containsHtml($string)
+    {
+        return preg_match("/<[^<]+>/",$string,$m) !== 0;
     }
 }
