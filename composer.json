@@ -8,7 +8,7 @@
     ],
     "require": {
         "ext-bcmath": "*",
-        "laravel/framework": "^9,0",
+        "laravel/framework": "^9.0",
         "nesbot/carbon": ">1.22",
         "dompdf/dompdf": "^1.0"
     },
