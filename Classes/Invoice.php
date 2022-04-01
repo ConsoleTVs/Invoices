@@ -151,6 +151,13 @@ class Invoice
     private $pdf;
 
     /**
+     * Json of currencies
+     *
+     * @var object
+     */
+    private $currencies;
+
+    /**
      * Create a new invoice instance.
      *
      * @method __construct
@@ -225,7 +232,7 @@ class Invoice
             'name'       => $name,
             'price'      => $price,
             'ammount'    => $ammount,
-            'totalPrice' => number_format(bcmul($price, $ammount, $this->decimals), $this->decimals),
+            'totalPrice' => number_format(bcmul($price, $ammount, $this->decimals), $this->decimals, $this->getDecPoint(), $this->getThousandsSep()),
             'id'         => $id,
             'imageUrl'   => $imageUrl,
         ]));
@@ -256,10 +263,36 @@ class Invoice
      */
     public function formatCurrency()
     {
-        $currencies = json_decode(file_get_contents(__DIR__.'/../Currencies.json'));
+        if(null === $this->currencies) {
+            $this->currencies = json_decode(file_get_contents(__DIR__ . '/../Currencies.json'));
+        }
         $currency = $this->currency;
 
-        return $currencies->$currency;
+        return $this->currencies->$currency;
+    }
+
+    /**
+     * return the decimal point for number format
+     *
+     * @method getDecPoint
+     *
+     * @return string
+     */
+    protected function getDecPoint()
+    {
+        return $this->formatCurrency()->dec_point ?: ".";
+    }
+
+    /**
+     * return the thousands_sep for number format
+     *
+     * @method getThousandsSep
+     *
+     * @return string
+     */
+    protected function getThousandsSep()
+    {
+        return $this->formatCurrency()->thousands_sep ?: ",";
     }
 
     /**
@@ -269,7 +302,7 @@ class Invoice
      *
      * @return int
      */
-    private function subTotalPrice()
+    public function subTotalPrice()
     {
         return $this->items->sum(function ($item) {
             return bcmul($item['price'], $item['ammount'], $this->decimals);
@@ -285,7 +318,7 @@ class Invoice
      */
     public function subTotalPriceFormatted()
     {
-        return number_format($this->subTotalPrice(), $this->decimals);
+        return number_format($this->subTotalPrice(), $this->decimals, $this->getDecPoint(), $this->getThousandsSep());
     }
 
     /**
@@ -295,7 +328,7 @@ class Invoice
      *
      * @return int
      */
-    private function totalPrice()
+    public function totalPrice()
     {
         return bcadd($this->subTotalPrice(), $this->taxPrice(), $this->decimals);
     }
@@ -309,7 +342,7 @@ class Invoice
      */
     public function totalPriceFormatted()
     {
-        return number_format($this->totalPrice(), $this->decimals);
+        return number_format($this->totalPrice(), $this->decimals, $this->getDecPoint(), $this->getThousandsSep());
     }
 
     /**
@@ -319,7 +352,7 @@ class Invoice
      *
      * @return float
      */
-    private function taxPrice(Object $tax_rate = null)
+    public function taxPrice(Object $tax_rate = null)
     {
         if (is_null($tax_rate)) {
             $tax_total = 0;
@@ -349,7 +382,7 @@ class Invoice
      */
     public function taxPriceFormatted($tax_rate)
     {
-        return number_format($this->taxPrice($tax_rate), $this->decimals);
+        return number_format($this->taxPrice($tax_rate), $this->decimals, $this->getDecPoint(), $this->getThousandsSep());
     }
 
     /**
