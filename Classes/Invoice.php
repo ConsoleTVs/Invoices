@@ -213,19 +213,19 @@ class Invoice
      *
      * @param string $name
      * @param int    $price
-     * @param int    $ammount
+     * @param int    $amount
      * @param string $id
      * @param string $imageUrl
      *
      * @return self
      */
-    public function addItem($name, $price, $ammount = 1, $id = '-', $imageUrl = null)
+    public function addItem($name, $price, $amount = 1, $id = '-', $imageUrl = null)
     {
         $this->items->push(Collection::make([
             'name'       => $name,
             'price'      => $price,
-            'ammount'    => $ammount,
-            'totalPrice' => number_format(bcmul($price, $ammount, $this->decimals), $this->decimals),
+            'amount'    => $amount,
+            'totalPrice' => number_format(bcmul($price, $amount, $this->decimals), $this->decimals),
             'id'         => $id,
             'imageUrl'   => $imageUrl,
         ]));
@@ -272,7 +272,7 @@ class Invoice
     private function subTotalPrice()
     {
         return $this->items->sum(function ($item) {
-            return bcmul($item['price'], $item['ammount'], $this->decimals);
+            return bcmul($item['price'], $item['amount'], $this->decimals);
         });
     }
 

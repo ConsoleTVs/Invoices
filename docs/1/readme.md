@@ -438,7 +438,7 @@ Select template for invoice.
 
 ### addItem
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::addItem(string $name, integer $price, integer $ammount, string $id)
+    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::addItem(string $name, integer $price, integer $amount, string $id)
 
 Adds an item to the invoice.
 
@@ -450,7 +450,7 @@ Adds an item to the invoice.
 #### Arguments
 * $name **string**
 * $price **integer**
-* $ammount **integer**
+* $amount **integer**
 * $id **string**
 
 

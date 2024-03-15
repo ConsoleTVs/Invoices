@@ -154,7 +154,7 @@
                             <td>{{ $item->get('id') }}</td>
                             <td>{{ $item->get('name') }}</td>
                             <td>{{ $item->get('price') }} {{ $invoice->formatCurrency()->symbol }}</td>
-                            <td>{{ $item->get('ammount') }}</td>
+                            <td>{{ $item->get('amount') }}</td>
                             <td>{{ $item->get('totalPrice') }} {{ $invoice->formatCurrency()->symbol }}</td>
                         </tr>
                     @endforeach
